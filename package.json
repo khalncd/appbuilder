@@ -1,5 +1,5 @@
 {
-  "name": "badaso",
+  "name": "appbuilder",
   "version": "1.0.0",
   "description": "The API & platform builder, build your apps 10x faster even more, it's open source & 100% free !",
   "main": "index.js",
@@ -111,7 +111,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uasoft-indonesia/badaso.git"
+    "url": "git+https://github.com/khalncd/badaso.git"
   },
   "keywords": [],
   "author": "",

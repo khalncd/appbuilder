@@ -134,7 +134,7 @@ class BadasoSetup extends Command
 
     protected function checkExist($file, $search)
     {
-        return $this->file->exists($file) && ! Str::contains($this->file->get($file), $search);
+        return $this->file->exists($file) && !Str::contains($this->file->get($file), $search);
     }
 
     protected function updateWebpackMix()
@@ -243,21 +243,21 @@ class BadasoSetup extends Command
         return [
             'BADASO_AUTH_TOKEN_LIFETIME' => '',
             'ARCANEDEV_LOGVIEWER_MIDDLEWARE' => '',
-            'MIX_BADASO_PLUGINS' => '',
-            'MIX_DEFAULT_MENU' => 'general',
-            'MIX_BADASO_MENU' => '${MIX_DEFAULT_MENU}',
-            'MIX_ADMIN_PANEL_ROUTE_PREFIX' => 'badaso-dashboard',
-            'MIX_API_ROUTE_PREFIX' => 'badaso-api',
-            'MIX_LOG_VIEWER_ROUTE' => '"log-viewer"',
-            'MIX_FIREBASE_API_KEY' => '',
-            'MIX_FIREBASE_AUTH_DOMAIN' => '',
-            'MIX_FIREBASE_PROJECT_ID' => '',
-            'MIX_FIREBASE_STORAGE_BUCKET' => '',
-            'MIX_FIREBASE_MESSAGE_SEENDER' => '',
-            'MIX_FIREBASE_APP_ID' => '',
-            'MIX_FIREBASE_MEASUREMENT_ID' => '',
-            'MIX_FIREBASE_WEB_PUSH_CERTIFICATES' => '',
-            'MIX_FIREBASE_SERVER_KEY' => '',
+            'VITE_BADASO_PLUGINS' => '',
+            'VITE_DEFAULT_MENU' => 'general',
+            'VITE_BADASO_MENU' => '${VITE_DEFAULT_MENU}',
+            'VITE_ADMIN_PANEL_ROUTE_PREFIX' => 'badaso-dashboard',
+            'VITE_API_ROUTE_PREFIX' => 'badaso-api',
+            'VITE_LOG_VIEWER_ROUTE' => '"log-viewer"',
+            'VITE_FIREBASE_API_KEY' => '',
+            'VITE_FIREBASE_AUTH_DOMAIN' => '',
+            'VITE_FIREBASE_PROJECT_ID' => '',
+            'VITE_FIREBASE_STORAGE_BUCKET' => '',
+            'VITE_FIREBASE_MESSAGE_SEENDER' => '',
+            'VITE_FIREBASE_APP_ID' => '',
+            'VITE_FIREBASE_MEASUREMENT_ID' => '',
+            'VITE_FIREBASE_WEB_PUSH_CERTIFICATES' => '',
+            'VITE_FIREBASE_SERVER_KEY' => '',
             'FILESYSTEM_DRIVER' => 'public',
             'AWS_ACCESS_KEY_ID' => '',
             'AWS_SECRET_ACCESS_KEY' => '',
@@ -271,13 +271,13 @@ class BadasoSetup extends Command
             'DROPBOX_AUTH_TOKEN' => '',
             'BACKUP_TARGET' => '',
             'BACKUP_DISK' => '',
-            'MIX_DATE_FORMAT' => '',
-            'MIX_DATETIME_FORMAT' => '',
-            'MIX_TIME_FORMAT' => '',
+            'VITE_DATE_FORMAT' => '',
+            'VITE_DATETIME_FORMAT' => '',
+            'VITE_TIME_FORMAT' => '',
             'ANALYTICS_VIEW_ID' => '',
-            'MIX_ANALYTICS_TRACKING_ID' => '',
-            'MIX_API_DOCUMENTATION_ANNOTATION_ROUTE' => 'api-annotation',
-            'MIX_API_DOCUMENTATION_ROUTE' => 'api-docs',
+            'VITE_ANALYTICS_TRACKING_ID' => '',
+            'VITE_API_DOCUMENTATION_ANNOTATION_ROUTE' => 'api-annotation',
+            'VITE_API_DOCUMENTATION_ROUTE' => 'api-docs',
             'BADASO_TABLE_PREFIX' => 'badaso_',
             'OCTANE_SERVER' => 'swoole',
             'REDIS_CLIENT' => 'predis',
@@ -322,7 +322,7 @@ class BadasoSetup extends Command
 
             $this->info('Adding badaso env');
         } catch (\Exception $e) {
-            $this->error('Failed adding badaso env '.$e->getMessage());
+            $this->error('Failed adding badaso env ' . $e->getMessage());
         }
     }
 

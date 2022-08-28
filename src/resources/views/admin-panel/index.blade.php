@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="manifest" href="/manifest.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Badaso</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script>window.Laravel = { csrfToken: '{{ csrf_token() }}' }</script>
+    <script>
+        window.Laravel = {
+            csrfToken: '{{ csrf_token() }}'
+        }
+    </script>
 
     <!-- Favicon -->
     <?php
-        use Uasoft\Badaso\Helpers\Config;
-
-        $favicon = Config::get('favicon');
-        $api_prefix = env('MIX_API_ROUTE_PREFIX');
-        $disk = config('badaso.storage.disk');
-        $is_exists = Storage::disk($disk)->exists($favicon);
+    use Uasoft\Badaso\Helpers\Config;
+    
+    $favicon = Config::get('favicon');
+    $api_prefix = env('VITE_API_ROUTE_PREFIX');
+    $disk = config('badaso.storage.disk');
+    $is_exists = Storage::disk($disk)->exists($favicon);
     ?>
 
     @if ($is_exists && $disk != 'public' && $disk != 'local')
@@ -26,6 +31,7 @@
 
     <link rel="stylesheet" href="{{ mix('css/badaso.css') }}">
 </head>
+
 <body>
     <div id="app"></div>
     <script>
@@ -35,4 +41,5 @@
     </script>
     <script src="{{ mix('js/badaso.js') }}"></script>
 </body>
+
 </html>

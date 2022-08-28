@@ -12,7 +12,7 @@ class GenerateForSwagger
     public function handle($request, Closure $next)
     {
         switch ($request->getPathInfo()) {
-            case $this->getPath(env('MIX_API_DOCUMENTATION_ROUTE', '/api-docs')):
+            case $this->getPath(env('VITE_API_DOCUMENTATION_ROUTE', '/api-docs')):
                 $data_types = DataType::all();
                 foreach ($data_types as $index => $data_type) {
                     $data_rows = $data_type->dataRows;

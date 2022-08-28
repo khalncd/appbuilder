@@ -56,7 +56,7 @@ class BadasoSetup extends Command
 
         $this->addingBadasoEnv();
         $this->updatePackageJson();
-        $this->updateWebpackMix();
+        // $this->updateWebpackMix();
         $this->publishBadasoProvider();
         $this->publishLaravelBackupProvider();
         $this->publishLaravelActivityLogProvider();
@@ -81,50 +81,50 @@ class BadasoSetup extends Command
         $package_json = file_get_contents(base_path('package.json'));
         $decoded_json = json_decode($package_json, true);
 
-        $decoded_json['devDependencies']['axios'] = '^0.18';
-        $decoded_json['devDependencies']['laravel-mix'] = '^6.0.19';
+        $decoded_json['devDependencies']['axios'] = '^0.27';
+        // $decoded_json['devDependencies']['laravel-mix'] = '^6.0.19';
         $decoded_json['devDependencies']['lodash'] = '^4.17.4';
-        $decoded_json['devDependencies']['postcss'] = '^8.1.14';
+        $decoded_json['devDependencies']['postcss'] = '^8.4.16';
 
-        $decoded_json['dependencies']['copy-files-from-to'] = '^3.2.0';
-        $decoded_json['dependencies']['popper.js'] = '^1.12';
-        $decoded_json['dependencies']['cross-env'] = '^5.1';
-        $decoded_json['dependencies']['vue'] = '^2.5.7';
-        $decoded_json['dependencies']['vue-loader'] = '^15.9.5';
-        $decoded_json['dependencies']['vue-template-compiler'] = '^2.6.14';
-        $decoded_json['dependencies']['sass'] = '^1.32.11';
-        $decoded_json['dependencies']['sass-loader'] = '^11.0.1';
-        $decoded_json['dependencies']['resolve-url-loader'] = '^4.0.0';
+        $decoded_json['dependencies']['copy-files-from-to'] = '^3.2.2';
+        $decoded_json['dependencies']['@popperjs/core'] = '^2.11.6';
+        $decoded_json['dependencies']['cross-env'] = '^7.0.3';
+        $decoded_json['dependencies']['vue'] = '^2.7.10';
+        $decoded_json['dependencies']['vue-loader'] = '^17.0.0';
+        $decoded_json['dependencies']['vue-template-compiler'] = '^2.7.10';
+        $decoded_json['dependencies']['sass'] = '^1.54.5';
+        $decoded_json['dependencies']['sass-loader'] = '^13.0.2';
+        $decoded_json['dependencies']['resolve-url-loader'] = '^5.0.0';
 
         $decoded_json['dependencies']['@johmun/vue-tags-input'] = '^2.1.0';
-        $decoded_json['dependencies']['@tinymce/tinymce-vue'] = '^3';
+        $decoded_json['dependencies']['@tinymce/tinymce-vue'] = '^3.2.8';
         $decoded_json['dependencies']['body-scroll-lock'] = '^4.0.0-beta.0';
-        $decoded_json['dependencies']['chart.js'] = '^2.8.0';
-        $decoded_json['dependencies']['firebase'] = '^8.4.2';
-        $decoded_json['dependencies']['jspdf'] = '^2.3.1';
-        $decoded_json['dependencies']['jspdf-autotable'] = '^3.5.14';
-        $decoded_json['dependencies']['luxon'] = '^1.25.0';
-        $decoded_json['dependencies']['material-icons'] = '^0.3.1';
-        $decoded_json['dependencies']['moment'] = '^2.29.1';
-        $decoded_json['dependencies']['prismjs'] = '^1.17.1';
-        $decoded_json['dependencies']['tinymce'] = '^5.7.1';
+        $decoded_json['dependencies']['chart.js'] = '^3.9.1';
+        $decoded_json['dependencies']['firebase'] = '^9.9.3';
+        $decoded_json['dependencies']['jspdf'] = '^2.5.1';
+        $decoded_json['dependencies']['jspdf-autotable'] = '^3.5.25';
+        $decoded_json['dependencies']['luxon'] = '^1.28.0';
+        $decoded_json['dependencies']['material-icons'] = '^1.11.10';
+        $decoded_json['dependencies']['moment'] = '^2.29.4';
+        $decoded_json['dependencies']['prismjs'] = '^1.29.0';
+        $decoded_json['dependencies']['tinymce'] = '^6.1.2';
         $decoded_json['dependencies']['uuid'] = '^8.3.2';
-        $decoded_json['dependencies']['vue-chartjs'] = '^3.4.2';
-        $decoded_json['dependencies']['vue-color'] = '^2.7.1';
+        $decoded_json['dependencies']['vue-chartjs'] = '^4.1.1';
+        $decoded_json['dependencies']['vue-color'] = '^2.8.1';
         $decoded_json['dependencies']['vue-datetime'] = '^1.0.0-beta.14';
-        $decoded_json['dependencies']['vue-draggable-nested-tree'] = '^3.0.0-beta2';
+        $decoded_json['dependencies']['vue-draggable-nested-tree'] = '^3.0.0-beta3';
         $decoded_json['dependencies']['vue-gtag'] = '^1.16.1';
-        $decoded_json['dependencies']['vue-i18n'] = '^8.22.4';
+        $decoded_json['dependencies']['vue-i18n'] = '^8.27.2';
         $decoded_json['dependencies']['vue-json-excel'] = '^0.3.0';
-        $decoded_json['dependencies']['vue-prism-editor'] = '^1.2.2';
-        $decoded_json['dependencies']['vue-router'] = '^3.1.3';
-        $decoded_json['dependencies']['vue2-editor'] = '^2.10.2';
+        $decoded_json['dependencies']['vue-prism-editor'] = '^1.3.0';
+        $decoded_json['dependencies']['vue-router'] = '^3.6.4';
+        $decoded_json['dependencies']['vue2-editor'] = '^2.10.3';
         $decoded_json['dependencies']['vuedraggable'] = '^2.24.3';
-        $decoded_json['dependencies']['vuelidate'] = '^0.7.6';
+        $decoded_json['dependencies']['vuelidate'] = '^0.7.7';
         $decoded_json['dependencies']['vuesax'] = '^3.12.2';
-        $decoded_json['dependencies']['vuex'] = '^3.1.1';
-        $decoded_json['dependencies']['vuex-persistedstate'] = '^4.0.0-beta.1';
-        $decoded_json['dependencies']['weekstart'] = '^1.0.1';
+        $decoded_json['dependencies']['vuex'] = '^3.6.2';
+        $decoded_json['dependencies']['vuex-persistedstate'] = '^4.1.0';
+        $decoded_json['dependencies']['weekstart'] = '^1.1.0';
 
         $encoded_json = json_encode($decoded_json, JSON_PRETTY_PRINT);
         file_put_contents(base_path('package.json'), $encoded_json);
@@ -134,30 +134,30 @@ class BadasoSetup extends Command
 
     protected function checkExist($file, $search)
     {
-        return $this->file->exists($file) && ! Str::contains($this->file->get($file), $search);
+        return $this->file->exists($file) && !Str::contains($this->file->get($file), $search);
     }
 
-    protected function updateWebpackMix()
-    {
-        // mix
-        $mix_file = base_path('webpack.mix.js');
-        $search = 'Badaso';
+    // protected function updateWebpackMix()
+    // {
+    //     // mix
+    //     $mix_file = base_path('webpack.mix.js');
+    //     $search = 'Badaso';
 
-        if ($this->checkExist($mix_file, $search)) {
-            $data =
-                <<<'EOT'
+    //     if ($this->checkExist($mix_file, $search)) {
+    //         $data =
+    //             <<<'EOT'
 
-        // Badaso
-        mix.js("vendor/badaso/core/src/resources/badaso/app.js", "public/js/badaso.js")
-            .sass("vendor/badaso/core/src/resources/badaso/assets/scss/style.scss", "public/css/badaso.css")
-            .vue()
-        EOT;
+    //     // Badaso
+    //     mix.js("vendor/badaso/core/src/resources/badaso/app.js", "public/js/badaso.js")
+    //         .sass("vendor/badaso/core/src/resources/badaso/assets/scss/style.scss", "public/css/badaso.css")
+    //         .vue()
+    //     EOT;
 
-            $this->file->append($mix_file, $data);
-        }
+    //         $this->file->append($mix_file, $data);
+    //     }
 
-        $this->info('webpack.mix.js updated');
-    }
+    //     $this->info('webpack.mix.js updated');
+    // }
 
     protected function publishBadasoProvider()
     {
@@ -243,21 +243,21 @@ class BadasoSetup extends Command
         return [
             'BADASO_AUTH_TOKEN_LIFETIME' => '',
             'ARCANEDEV_LOGVIEWER_MIDDLEWARE' => '',
-            'MIX_BADASO_PLUGINS' => '',
-            'MIX_DEFAULT_MENU' => 'general',
-            'MIX_BADASO_MENU' => '${MIX_DEFAULT_MENU}',
-            'MIX_ADMIN_PANEL_ROUTE_PREFIX' => 'badaso-dashboard',
-            'MIX_API_ROUTE_PREFIX' => 'badaso-api',
-            'MIX_LOG_VIEWER_ROUTE' => '"log-viewer"',
-            'MIX_FIREBASE_API_KEY' => '',
-            'MIX_FIREBASE_AUTH_DOMAIN' => '',
-            'MIX_FIREBASE_PROJECT_ID' => '',
-            'MIX_FIREBASE_STORAGE_BUCKET' => '',
-            'MIX_FIREBASE_MESSAGE_SEENDER' => '',
-            'MIX_FIREBASE_APP_ID' => '',
-            'MIX_FIREBASE_MEASUREMENT_ID' => '',
-            'MIX_FIREBASE_WEB_PUSH_CERTIFICATES' => '',
-            'MIX_FIREBASE_SERVER_KEY' => '',
+            'VITE_BADASO_PLUGINS' => '',
+            'VITE_DEFAULT_MENU' => 'general',
+            'VITE_BADASO_MENU' => '${VITE_DEFAULT_MENU}',
+            'VITE_ADMIN_PANEL_ROUTE_PREFIX' => 'admin',
+            'VITE_API_ROUTE_PREFIX' => 'api',
+            'VITE_LOG_VIEWER_ROUTE' => '"log-viewer"',
+            'VITE_FIREBASE_API_KEY' => '',
+            'VITE_FIREBASE_AUTH_DOMAIN' => '',
+            'VITE_FIREBASE_PROJECT_ID' => '',
+            'VITE_FIREBASE_STORAGE_BUCKET' => '',
+            'VITE_FIREBASE_MESSAGE_SEENDER' => '',
+            'VITE_FIREBASE_APP_ID' => '',
+            'VITE_FIREBASE_MEASUREMENT_ID' => '',
+            'VITE_FIREBASE_WEB_PUSH_CERTIFICATES' => '',
+            'VITE_FIREBASE_SERVER_KEY' => '',
             'FILESYSTEM_DRIVER' => 'public',
             'AWS_ACCESS_KEY_ID' => '',
             'AWS_SECRET_ACCESS_KEY' => '',
@@ -271,14 +271,14 @@ class BadasoSetup extends Command
             'DROPBOX_AUTH_TOKEN' => '',
             'BACKUP_TARGET' => '',
             'BACKUP_DISK' => '',
-            'MIX_DATE_FORMAT' => '',
-            'MIX_DATETIME_FORMAT' => '',
-            'MIX_TIME_FORMAT' => '',
+            'VITE_DATE_FORMAT' => '',
+            'VITE_DATETIME_FORMAT' => '',
+            'VITE_TIME_FORMAT' => '',
             'ANALYTICS_VIEW_ID' => '',
-            'MIX_ANALYTICS_TRACKING_ID' => '',
-            'MIX_API_DOCUMENTATION_ANNOTATION_ROUTE' => 'api-annotation',
-            'MIX_API_DOCUMENTATION_ROUTE' => 'api-docs',
-            'BADASO_TABLE_PREFIX' => 'badaso_',
+            'VITE_ANALYTICS_TRACKING_ID' => '',
+            'VITE_API_DOCUMENTATION_ANNOTATION_ROUTE' => 'api-annotation',
+            'VITE_API_DOCUMENTATION_ROUTE' => 'api-docs',
+            'BADASO_TABLE_PREFIX' => 'bds_',
             'OCTANE_SERVER' => 'swoole',
             'REDIS_CLIENT' => 'predis',
             'WORKSPACE_PUID' => '1000',
@@ -322,7 +322,7 @@ class BadasoSetup extends Command
 
             $this->info('Adding badaso env');
         } catch (\Exception $e) {
-            $this->error('Failed adding badaso env '.$e->getMessage());
+            $this->error('Failed adding badaso env ' . $e->getMessage());
         }
     }
 

@@ -1,6 +1,6 @@
 {
-  "version": "3.0.0-alpha",
-  "name": "badaso/core",
+  "version": "1.0.0",
+  "name": "khalncd/badaso",
   "description": "The API & platform builder, build your apps 10x faster even more, it's open source & 100% free !",
   "keywords": [
     "laravel",
@@ -34,9 +34,9 @@
     "laravel/octane": "^1.2",
     "laravel/sanctum": "^2.14.1|^3.0",
     "laravel/tinker": "^2.7",
-    "laravel/ui": "^3.4",
-    "league/flysystem": "~1.1|~2.0|~3.0",
-    "league/flysystem-aws-s3-v3": "^1.0.28|^3.0",
+    "laravel/ui": "^4.0",
+    "league/flysystem": "^3.2.1",
+    "league/flysystem-aws-s3-v3": "^1.0.28|^3.2.0",
     "phpstan/phpstan": "^1.4",
     "predis/predis": "^1.1",
     "spatie/flysystem-dropbox": "^1.2.2|^2.0",
@@ -52,8 +52,8 @@
   },
   "authors": [
     {
-      "name": "UASOFT",
-      "email": "hello@uatech.co.id"
+      "name": "KANYSOFT",
+      "email": "kahasha.nyamashali@gmail.com"
     }
   ],
   "minimum-stability": "alpha",

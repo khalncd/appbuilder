@@ -42,8 +42,8 @@ try {
 }
 // END IDENTIFIED VARIABLE BROADCAST CHANNEL
 
-const pluginsEnv = process.env.MIX_BADASO_PLUGINS
-  ? process.env.MIX_BADASO_PLUGINS
+const pluginsEnv = import.meta.env.VITE_BADASO_PLUGINS
+  ? import.meta.env.VITE_BADASO_PLUGINS
   : null;
 
 // EXCLUDED ROUTES
@@ -53,7 +53,7 @@ excluded = excludedRouter;
 // DYNAMIC IMPORT PLUGINS FOR COMPONENTS
 try {
   if (pluginsEnv) {
-    const plugins = process.env.MIX_BADASO_PLUGINS.split(",");
+    const plugins = import.meta.env.VITE_BADASO_PLUGINS.split(",");
     if (plugins && plugins.length > 0) {
       plugins.forEach((plugin) => {
         const router = require("../../../../" +
@@ -211,7 +211,7 @@ try {
 // DYNAMIC IMPORT PLUGINS FOR COMPONENTS
 try {
   if (pluginsEnv) {
-    const plugins = process.env.MIX_BADASO_PLUGINS.split(",");
+    const plugins = import.meta.env.VITE_BADASO_PLUGINS.split(",");
     if (plugins && plugins.length > 0) {
       plugins.forEach((plugin) => {
         const fileName = require("../../../../" +
@@ -247,8 +247,8 @@ Vue.prototype.$loadingConfig = {
   color: "#06bbd3",
 };
 
-const baseUrl = process.env.MIX_ADMIN_PANEL_ROUTE_PREFIX
-  ? process.env.MIX_ADMIN_PANEL_ROUTE_PREFIX
+const baseUrl = import.meta.env.VITE_ADMIN_PANEL_ROUTE_PREFIX
+  ? import.meta.env.VITE_ADMIN_PANEL_ROUTE_PREFIX
   : "badaso-dashboard";
 Vue.prototype.$baseUrl = "/" + baseUrl;
 
@@ -278,13 +278,13 @@ Vue.prototype.$syncLoader = function (statusSyncLoader) {
 
 // ADD FIREBASE MESSAGE
 const firebaseConfig = {
-  apiKey: process.env.MIX_FIREBASE_API_KEY,
-  authDomain: process.env.MIX_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.MIX_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.MIX_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.MIX_FIREBASE_MESSAGE_SEENDER,
-  appId: process.env.MIX_FIREBASE_APP_ID,
-  measurementId: process.env.MIX_FIREBASE_MEASUREMENT_ID,
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGE_SEENDER,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 let statusActiveFeatureFirebase = true;
@@ -320,7 +320,7 @@ if (statusActiveFeatureFirebase) {
   Vue.prototype.$messaging = firebase.messaging();
   Vue.prototype.$messagingToken = firebase
     .messaging()
-    .getToken({ vapidKey: process.env.MIX_FIREBASE_WEB_PUSH_CERTIFICATES });
+    .getToken({ vapidKey: import.meta.env.VITE_FIREBASE_WEB_PUSH_CERTIFICATES });
 }
 // END ADD FIREBASE
 
@@ -335,8 +335,8 @@ Vue.use(
   {
     pageTrackerExcludedRoutes: excluded,
     config: {
-      id: process.env.MIX_ANALYTICS_TRACKING_ID
-        ? process.env.MIX_ANALYTICS_TRACKING_ID
+      id: import.meta.env.VITE_ANALYTICS_TRACKING_ID
+        ? import.meta.env.VITE_ANALYTICS_TRACKING_ID
         : null,
       params: {
         send_page_view: true,

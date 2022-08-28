@@ -27,7 +27,7 @@ class FCMNotification
 
     public function __construct()
     {
-        $this->firebase_server_key = \env('MIX_FIREBASE_SERVER_KEY', '');
+        $this->firebase_server_key = \env('VITE_FIREBASE_SERVER_KEY', '');
         $this->client = new Client();
         $this->priority = \config('firebase.priority');
         $this->tell_role_names = \config('firebase.tell_role_names');

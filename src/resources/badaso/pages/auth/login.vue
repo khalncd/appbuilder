@@ -55,7 +55,11 @@
 
           <div class="login__footer">
             <div
-              class="vs-component con-vs-checkbox vs-checkbox-primary vs-checkbox-default"
+              class="
+                vs-component
+                con-vs-checkbox
+                vs-checkbox-primary vs-checkbox-default
+              "
             >
               <input
                 type="checkbox"
@@ -66,7 +70,14 @@
                 style="border: 2px solid rgb(180, 180, 180)"
                 ><span class="vs-checkbox--check"
                   ><i
-                    class="vs-icon notranslate icon-scale vs-checkbox--icon material-icons null"
+                    class="
+                      vs-icon
+                      notranslate
+                      icon-scale
+                      vs-checkbox--icon
+                      material-icons
+                      null
+                    "
                     >check</i
                   ></span
                 ></span
@@ -99,8 +110,8 @@ export default {
   data: () => ({
     email: "",
     password: "",
-    baseUrl: process.env.MIX_ADMIN_PANEL_ROUTE_PREFIX
-      ? process.env.MIX_ADMIN_PANEL_ROUTE_PREFIX
+    baseUrl: import.meta.env.VITE_ADMIN_PANEL_ROUTE_PREFIX
+      ? import.meta.env.VITE_ADMIN_PANEL_ROUTE_PREFIX
       : "badaso-dashboard",
     rememberMe: false,
     errors: {},
@@ -119,7 +130,7 @@ export default {
         })
         .then((response) => {
           this.$closeLoader();
-          if (response.hasOwnProperty('data')) {
+          if (response.hasOwnProperty("data")) {
             this.$router.push({ name: "Home" });
           } else {
             this.$router.push({

@@ -10,12 +10,12 @@ import Maintenance from "./../pages/maintenance.vue";
 
 import api from "../api/index";
 
-const prefix = process.env.MIX_ADMIN_PANEL_ROUTE_PREFIX
-  ? "/" + process.env.MIX_ADMIN_PANEL_ROUTE_PREFIX
+const prefix = import.meta.env.VITE_ADMIN_PANEL_ROUTE_PREFIX
+  ? "/" + import.meta.env.VITE_ADMIN_PANEL_ROUTE_PREFIX
   : "/badaso-dashboard";
 
-const pluginsEnv = process.env.MIX_BADASO_PLUGINS
-  ? process.env.MIX_BADASO_PLUGINS
+const pluginsEnv = import.meta.env.VITE_BADASO_PLUGINS
+  ? import.meta.env.VITE_BADASO_PLUGINS
   : null;
 
 let _authRouters = [];
@@ -52,7 +52,7 @@ try {
 
   // DYNAMIC IMPORT BADASO PLUGINS ROUTERS
   if (pluginsEnv) {
-    const plugins = process.env.MIX_BADASO_PLUGINS.split(",");
+    const plugins = import.meta.env.VITE_BADASO_PLUGINS.split(",");
     if (plugins && plugins.length > 0) {
       for (const index in plugins) {
         const plugin = plugins[index];
@@ -99,6 +99,15 @@ try {
 
 // DYNAMIC IMPORT CUSTOM ROUTERS
 try {
+  const publicRouters = require.context(
+    vite(["resources/js/badaso/routers/public"]),
+    false,
+    /\.js$/
+  ); //
+  publicRouters.keys().forEach((fileName) => {
+    _publicRouters = [..._publicRouters, ...publicRouters(fileName).default];
+  });
+
   const authRouters = require.context(
     "../../../../../../../resources/js/badaso/routers/auth",
     false,
@@ -106,15 +115,6 @@ try {
   ); //
   authRouters.keys().forEach((fileName) => {
     _authRouters = [..._authRouters, ...authRouters(fileName).default];
-  });
-
-  const publicRouters = require.context(
-    "../../../../../../../resources/js/badaso/routers/public",
-    false,
-    /\.js$/
-  ); //
-  publicRouters.keys().forEach((fileName) => {
-    _publicRouters = [..._publicRouters, ...publicRouters(fileName).default];
   });
 
   const adminRouters = require.context(

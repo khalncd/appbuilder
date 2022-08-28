@@ -114,21 +114,21 @@ BADASO_LICENSE_KEY=
 
 #Set default menu to generate menu in dashboard. 
 #By default Badaso provide `admin` as default menu
-MIX_DEFAULT_MENU=admin
+VITE_DEFAULT_MENU=admin
 
 #Set Route prefix for your dashboard. 
-#Access dashboard via {HOST}/{MIX_ADMIN_PANEL_ROUTE_PREFIX}
-MIX_ADMIN_PANEL_ROUTE_PREFIX=dashboard
+#Access dashboard via {HOST}/{VITE_ADMIN_PANEL_ROUTE_PREFIX}
+VITE_ADMIN_PANEL_ROUTE_PREFIX=dashboard
 
 #Set prefix for api that badaso provide. By default 
 #Badaso provide `badaso-api` as prefix. 
-MIX_API_ROUTE_PREFIX=admin
+VITE_API_ROUTE_PREFIX=admin
 
 #Badaso provide Log Viewer feature. please set a route to access this feature
-MIX_LOG_VIEWER_ROUTE="log-viewer"
+VITE_LOG_VIEWER_ROUTE="log-viewer"
 ```
 :::important
-MIX_ADMIN_PANEL_ROUTE_PREFIX, MIX_API_ROUTE_PREFIX & MIX_LOG_VIEWER_ROUTE should be different
+VITE_ADMIN_PANEL_ROUTE_PREFIX, VITE_API_ROUTE_PREFIX & VITE_LOG_VIEWER_ROUTE should be different
 :::
 
 9. Add the following Badaso guard and auth provider in ```config/auth.php```. Make sure to use Badaso guard as auth default in ```config/auth.php```.

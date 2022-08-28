@@ -1,7 +1,7 @@
 const exported = {};
 
-const pluginsEnv = process.env.MIX_BADASO_PLUGINS
-  ? process.env.MIX_BADASO_PLUGINS
+const pluginsEnv = import.meta.env.VITE_BADASO_PLUGINS
+  ? import.meta.env.VITE_BADASO_PLUGINS
   : null;
 
 // DYNAMIC IMPORT BADASO API HELPER
@@ -63,7 +63,7 @@ try {
 // DYNAMIC IMPORT CUSTOM PLUGINS API HELPER
 try {
   if (pluginsEnv) {
-    const plugins = process.env.MIX_BADASO_PLUGINS.split(",");
+    const plugins = import.meta.env.VITE_BADASO_PLUGINS.split(",");
     if (plugins && plugins.length > 0) {
       plugins.forEach((plugin) => {
         const modules = require("../../../../../" +
